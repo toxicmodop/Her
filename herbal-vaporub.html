@@ -16,15 +16,250 @@
     --text: #2c2c2c;
     --text-light: #5a5a5a;
     --shadow: 0 8px 32px rgba(26,77,46,0.12);
+    --bg: #f9f6f0;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(249,246,240,0.97);
+    --border: rgba(76,175,125,0.15);
+    --input-bg: #fcfcfc;
+    --input-border: #ddd;
+    --neon: none;
+  }
+
+  body.dark {
+    --green-dark: #00ff88;
+    --green-mid: #00cc6a;
+    --green-light: #00ff88;
+    --gold: #ffe066;
+    --cream: #0a0f0a;
+    --white: #e0ffe0;
+    --text: #e0ffe0;
+    --text-light: #88ccaa;
+    --shadow: 0 8px 32px rgba(0,255,136,0.08);
+    --bg: #0a0f0a;
+    --card-bg: #0f1a12;
+    --nav-bg: rgba(10,15,10,0.97);
+    --border: rgba(0,255,136,0.18);
+    --input-bg: #0d1a10;
+    --input-border: rgba(0,255,136,0.25);
+    --neon: 0 0 8px rgba(0,255,136,0.6), 0 0 20px rgba(0,255,136,0.3);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
   body {
     font-family: 'Lato', sans-serif;
-    background: var(--cream);
+    background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  /* ===== THEME TOGGLE ===== */
+  .theme-toggle {
+    position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--green-light);
+    box-shadow: var(--neon), 0 4px 20px rgba(0,0,0,0.3);
+    cursor: pointer; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .theme-toggle:hover { transform: scale(1.12) rotate(20deg); }
+
+  /* ===== DARK BODY OVERRIDES ===== */
+  body.dark {
+    background: #0a0f0a;
+  }
+  body.dark nav {
+    background: rgba(10,15,10,0.97);
+    border-bottom: 2px solid rgba(0,255,136,0.4);
+    box-shadow: 0 2px 30px rgba(0,255,136,0.1);
+  }
+  body.dark .nav-logo span { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.5); }
+  body.dark .nav-logo img { border-color: #00ff88; box-shadow: 0 0 14px rgba(0,255,136,0.5); }
+  body.dark .nav-links a { color: #88ccaa; }
+  body.dark .nav-links a:hover, body.dark .nav-links a.active {
+    background: rgba(0,255,136,0.15);
+    color: #00ff88;
+    text-shadow: 0 0 8px rgba(0,255,136,0.7);
+    box-shadow: 0 0 12px rgba(0,255,136,0.2);
+  }
+  body.dark .nav-order-btn {
+    background: rgba(0,255,136,0.15) !important;
+    color: #00ff88 !important;
+    border: 1px solid rgba(0,255,136,0.4) !important;
+    box-shadow: 0 0 12px rgba(0,255,136,0.2) !important;
+  }
+  body.dark .nav-order-btn:hover {
+    background: rgba(0,255,136,0.3) !important;
+    box-shadow: 0 0 20px rgba(0,255,136,0.4) !important;
+  }
+  body.dark .hero {
+    background: linear-gradient(135deg, #020a04 0%, #061a0a 50%, #041208 100%);
+  }
+  body.dark .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(0,255,136,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  body.dark .hero-logo {
+    border-color: #00ff88;
+    box-shadow: 0 0 40px rgba(0,255,136,0.5), 0 0 80px rgba(0,255,136,0.2);
+  }
+  body.dark .hero h1 { text-shadow: 0 0 30px rgba(0,255,136,0.3); }
+  body.dark .hero h1 em { color: #ffe066; text-shadow: 0 0 20px rgba(255,224,102,0.6); }
+  body.dark .badge {
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.3);
+    color: #00ff88;
+    text-shadow: 0 0 6px rgba(0,255,136,0.4);
+  }
+  body.dark .btn-gold {
+    background: rgba(255,224,102,0.15);
+    color: #ffe066;
+    border: 1px solid rgba(255,224,102,0.4);
+    box-shadow: 0 0 16px rgba(255,224,102,0.2);
+  }
+  body.dark .btn-gold:hover {
+    background: rgba(255,224,102,0.25);
+    box-shadow: 0 0 28px rgba(255,224,102,0.4);
+  }
+  body.dark .btn-outline {
+    border-color: rgba(0,255,136,0.5);
+    color: #00ff88;
+    box-shadow: 0 0 12px rgba(0,255,136,0.2);
+  }
+  body.dark .btn-outline:hover {
+    background: rgba(0,255,136,0.1);
+    box-shadow: 0 0 24px rgba(0,255,136,0.4);
+  }
+  body.dark .section { background: #0a0f0a; }
+  body.dark .ingredients-bg { background: linear-gradient(180deg, #060e08 0%, #0a0f0a 100%); }
+  body.dark .section-title h2 {
+    color: #00ff88;
+    text-shadow: 0 0 20px rgba(0,255,136,0.4);
+  }
+  body.dark .section-title p { color: #88ccaa; }
+  body.dark .section-title .divider { background: #ffe066; box-shadow: 0 0 10px rgba(255,224,102,0.5); }
+  body.dark .feature-card {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.15);
+    box-shadow: 0 4px 20px rgba(0,255,136,0.05);
+  }
+  body.dark .feature-card:hover {
+    border-color: rgba(0,255,136,0.4);
+    box-shadow: 0 8px 40px rgba(0,255,136,0.15), 0 0 0 1px rgba(0,255,136,0.1);
+    transform: translateY(-6px);
+  }
+  body.dark .feature-card h3 { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.3); }
+  body.dark .feature-card p { color: #88ccaa; }
+  body.dark .ing-card {
+    background: #0f1a12;
+    border-left: 5px solid #00ff88;
+    box-shadow: 0 0 20px rgba(0,255,136,0.06), -2px 0 10px rgba(0,255,136,0.1);
+  }
+  body.dark .ing-card:hover { box-shadow: 0 0 30px rgba(0,255,136,0.15), -4px 0 16px rgba(0,255,136,0.2); }
+  body.dark .ing-card h4 { color: #00ff88; }
+  body.dark .ing-card .amount { background: rgba(0,255,136,0.15); color: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.2); }
+  body.dark .ing-card p { color: #88ccaa; }
+  body.dark .calc-wrapper {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .calc-intro { color: #88ccaa; }
+  body.dark .calc-slider-group label { color: #00ff88; }
+  body.dark .calc-slider-group label span { background: rgba(0,255,136,0.15); color: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.2); }
+  body.dark input[type=range] { background: linear-gradient(to right, #00ff88, #00cc6a); }
+  body.dark input[type=range]::-webkit-slider-thumb { background: #00ff88; border-color: #0a0f0a; box-shadow: 0 0 10px rgba(0,255,136,0.6); }
+  body.dark .calc-results { background: linear-gradient(135deg, #061208, #0a1e0e); border: 1px solid rgba(0,255,136,0.2); }
+  body.dark .calc-row { border-bottom-color: rgba(0,255,136,0.1); }
+  body.dark .calc-btn { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 14px rgba(0,255,136,0.15); }
+  body.dark .calc-btn:hover { background: rgba(0,255,136,0.25); box-shadow: 0 0 24px rgba(0,255,136,0.3); }
+  body.dark .faq-item { background: #0f1a12; border: 1px solid rgba(0,255,136,0.15); }
+  body.dark .faq-q { color: #00ff88; }
+  body.dark .faq-q:hover { background: rgba(0,255,136,0.06); }
+  body.dark .faq-q span { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.5); }
+  body.dark .faq-a { color: #88ccaa; }
+  body.dark .faq-item.open { box-shadow: 0 0 20px rgba(0,255,136,0.1), inset 0 0 20px rgba(0,255,136,0.02); }
+  body.dark .video-card { background: #0f1a12; border: 1px solid rgba(0,255,136,0.12); }
+  body.dark .video-card:hover { box-shadow: 0 0 30px rgba(0,255,136,0.15); border-color: rgba(0,255,136,0.3); }
+  body.dark .video-info h4 { color: #00ff88; }
+  body.dark .video-info p { color: #88ccaa; }
+  body.dark .safety-hero { background: linear-gradient(135deg, #0d1a08, #061208); border-color: rgba(255,224,102,0.3); box-shadow: 0 0 30px rgba(255,224,102,0.05); }
+  body.dark .safety-hero h2 { color: #00ff88; text-shadow: 0 0 16px rgba(0,255,136,0.4); }
+  body.dark .safety-hero p { color: #88ccaa; }
+  body.dark .safety-card.warn { background: #1a1400; border-left-color: #ffe066; }
+  body.dark .safety-card.safe { background: #061208; border-left-color: #00ff88; }
+  body.dark .safety-card.info { background: #060d1a; border-left-color: #00aaff; }
+  body.dark .safety-card.danger { background: #1a0608; border-left-color: #ff4488; }
+  body.dark .safety-card h4 { color: #e0ffe0; }
+  body.dark .safety-card ul { color: #88ccaa; }
+  body.dark .product-preview {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .product-preview img { border-color: #00ff88; box-shadow: 0 0 20px rgba(0,255,136,0.3); }
+  body.dark .product-preview h3 { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,0.4); }
+  body.dark .product-price { color: #00ff88; text-shadow: 0 0 16px rgba(0,255,136,0.5); }
+  body.dark .ptag { background: rgba(0,255,136,0.1); color: #00ff88; }
+  body.dark .order-form {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .order-form h3 { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,0.3); }
+  body.dark .form-group label { color: #00ff88; }
+  body.dark .form-group input, body.dark .form-group select, body.dark .form-group textarea {
+    background: #0a1208; border-color: rgba(0,255,136,0.2); color: #e0ffe0;
+  }
+  body.dark .form-group input:focus, body.dark .form-group select:focus, body.dark .form-group textarea:focus {
+    border-color: #00ff88; box-shadow: 0 0 12px rgba(0,255,136,0.2); background: #0d1a10;
+  }
+  body.dark .qty-btn { border-color: rgba(0,255,136,0.4); background: #0a1208; color: #00ff88; }
+  body.dark .qty-btn:hover { background: rgba(0,255,136,0.15); box-shadow: 0 0 12px rgba(0,255,136,0.3); }
+  body.dark .qty-display { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.5); }
+  body.dark .submit-btn { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 16px rgba(0,255,136,0.15); }
+  body.dark .submit-btn:hover { background: rgba(0,255,136,0.25); box-shadow: 0 0 30px rgba(0,255,136,0.35); }
+  body.dark .order-total { background: linear-gradient(135deg, #061208, #0a1e0e); border: 1px solid rgba(0,255,136,0.2); }
+  body.dark .order-success h3 { color: #00ff88; }
+  body.dark .order-success p { color: #88ccaa; }
+  body.dark .proc-timeline::before { background: linear-gradient(to bottom, #00ff88, #00cc6a); box-shadow: 0 0 10px rgba(0,255,136,0.4); }
+  body.dark .proc-num { background: rgba(0,255,136,0.15); color: #00ff88; border-color: #0a0f0a; box-shadow: 0 0 16px rgba(0,255,136,0.4); }
+  body.dark .proc-content { background: #0f1a12; border: 1px solid rgba(0,255,136,0.12); }
+  body.dark .proc-content h4 { color: #00ff88; }
+  body.dark .proc-content p { color: #88ccaa; }
+  body.dark .proc-tip { background: #1a1400; color: #ffe066; }
+  body.dark footer { background: #060e08; border-top: 1px solid rgba(0,255,136,0.2); }
+  body.dark footer .footer-links a { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.4); }
+  body.dark .about-strip { background: #060e08; border-bottom: 1px solid rgba(0,255,136,0.15); }
+  body.dark .about-strip strong { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.5); }
+  body.dark .toast { background: #0f1a12; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 30px rgba(0,255,136,0.2); color: #00ff88; }
+
+  /* Neon scan line effect on dark */
+  body.dark::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 99999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,136,0.012) 2px,
+      rgba(0,255,136,0.012) 4px
+    );
+  }
+
+  /* Neon glow pulse on cards in dark mode */
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(0,255,136,0.15), 0 0 20px rgba(0,255,136,0.05); }
+    50% { box-shadow: 0 0 16px rgba(0,255,136,0.3), 0 0 40px rgba(0,255,136,0.1); }
+  }
+  body.dark .feature-card, body.dark .ing-card, body.dark .faq-item {
+    animation: neonPulse 4s ease-in-out infinite;
   }
 
   /* ===== NAV ===== */
@@ -385,15 +620,13 @@
   </div>
   <ul class="nav-links">
     <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a href="#" onclick="showPage('ingredients')" id="nav-ingredients">Ingredients</a></li>
     <li><a href="#" onclick="showPage('procedure')" id="nav-procedure">How to Make</a></li>
     <li><a href="#" onclick="showPage('calculator')" id="nav-calculator">Calculator</a></li>
-    <li><a href="#" onclick="showPage('videos')" id="nav-videos">Videos</a></li>
-    <li><a href="#" onclick="showPage('faq')" id="nav-faq">FAQ</a></li>
-    <li><a href="#" onclick="showPage('safety')" id="nav-safety">Safety</a></li>
-    <li><a href="#" onclick="showPage('order')" id="nav-order" class="nav-order-btn">Order Now</a></li>
   </ul>
 </nav>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
 
 <!-- ===== HOME PAGE ===== -->
 <div id="page-home" class="page active">
@@ -412,8 +645,8 @@
         <span class="badge">✋ Handcrafted</span>
         <span class="badge">20 ml Jar</span>
       </div>
-      <a class="btn btn-gold" href="#" onclick="showPage('order')">Order Now</a>
-      <a class="btn btn-outline" href="#" onclick="showPage('ingredients')">View Ingredients</a>
+      <a class="btn btn-gold" href="#" onclick="showPage('procedure')">How to Make</a>
+      <a class="btn btn-outline" href="#" onclick="showPage('calculator')">Ingredient Calculator</a>
     </div>
   </div>
 
@@ -489,91 +722,11 @@
   <footer>
     <div class="footer-links">
       <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('ingredients')">Ingredients</a>
-      <a href="#" onclick="showPage('safety')">Safety</a>
-      <a href="#" onclick="showPage('faq')">FAQ</a>
-      <a href="#" onclick="showPage('order')">Order</a>
+      <a href="#" onclick="showPage('procedure')">How to Make</a>
+      <a href="#" onclick="showPage('calculator')">Calculator</a>
     </div>
     <p>© 2025 Herbal VapoRub. All rights reserved. | Handcrafted with ❤️ and nature's best</p>
     <p style="margin-top:8px; opacity:0.6; font-size:0.78rem;">Not intended to diagnose, treat, cure, or prevent any disease. Consult a physician before use if pregnant, nursing, or for use on young children.</p>
-  </footer>
-</div>
-
-<!-- ===== INGREDIENTS PAGE ===== -->
-<div id="page-ingredients" class="page">
-  <section class="section ingredients-bg">
-    <div class="section-title fade-up">
-      <h2>Our Natural Ingredients</h2>
-      <div class="divider"></div>
-      <p>Every ingredient in our 20 ml jar is chosen for its proven therapeutic properties.</p>
-    </div>
-    <div class="ingredients-grid">
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🐝</div>
-        <div>
-          <h4>Beeswax</h4>
-          <span class="amount">3 gm</span>
-          <p>The natural base of our formula. Beeswax provides the perfect texture, locks in moisture, creates a protective barrier on skin, and is naturally antibacterial. It solidifies the rub at room temperature while melting smoothly on contact with skin warmth.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🫒</div>
-        <div>
-          <h4>Olive Oil</h4>
-          <span class="amount">5 ml</span>
-          <p>Rich in antioxidants and fatty acids, olive oil deeply nourishes and softens the skin. It acts as an excellent carrier oil, helping other active ingredients penetrate the skin barrier and enhancing the overall spreadability of the rub.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🥥</div>
-        <div>
-          <h4>Coconut Oil</h4>
-          <span class="amount">8 ml</span>
-          <p>Our primary carrier oil. Coconut oil is naturally antimicrobial, deeply moisturizing, and has a pleasant light texture. It helps the rub absorb beautifully and keeps skin hydrated while allowing essential oils to work effectively.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">❄️</div>
-        <div>
-          <h4>Camphor</h4>
-          <span class="amount">1 gm</span>
-          <p>A classic decongestant ingredient used for centuries. Camphor provides a cooling sensation, helps relieve congestion, soothes muscle aches, and creates the characteristic refreshing aroma associated with effective vapour rubs.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🌿</div>
-        <div>
-          <h4>Peppermint Essential Oil</h4>
-          <span class="amount">3–4 drops</span>
-          <p>Menthol-rich peppermint oil delivers an intense cooling and refreshing effect, helps open nasal passages, and provides a soothing sensation to the chest. It also has mild analgesic properties for temporary pain relief.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🌰</div>
-        <div>
-          <h4>Clove Essential Oil</h4>
-          <span class="amount">2–3 drops</span>
-          <p>Clove oil contains eugenol, a powerful natural compound with antiseptic and anti-inflammatory properties. It adds warmth to the formula, helps fight respiratory infections, and enhances the overall therapeutic effect.</p>
-        </div>
-      </div>
-      <div class="ing-card fade-up">
-        <div class="ing-icon">🌲</div>
-        <div>
-          <h4>Eucalyptus Essential Oil</h4>
-          <span class="amount">6–7 drops</span>
-          <p>The star decongestant of the formula. Eucalyptol (1,8-cineole) in eucalyptus oil is clinically shown to reduce airway mucus and ease breathing. It also has antimicrobial properties that help fight cold and flu viruses.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('procedure')">How to Make</a>
-      <a href="#" onclick="showPage('calculator')">Calculator</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
-    </div>
-    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
   </footer>
 </div>
 
@@ -629,7 +782,7 @@
         <div class="proc-num">5</div>
         <div class="proc-content">
           <h4>🌡️ Remove from Heat & Cool Slightly</h4>
-          <p>Remove the bowl from the double boiler and allow the mixture to cool for 3–5 minutes. It should still be liquid but not too hot (around 45–50°C is ideal). This step is important before adding essential oils to preserve their therapeutic compounds.</p>
+          <p>Remove the bowl from the double boiler and allow the mixture to cool for 3–5 minutes. It should still be liquid but not too hot (around 45–50°C is ideal). This step preserves the therapeutic compounds in the essential oils.</p>
         </div>
       </div>
       <div class="proc-step fade-up">
@@ -673,8 +826,6 @@
     <div class="footer-links">
       <a href="#" onclick="showPage('home')">Home</a>
       <a href="#" onclick="showPage('calculator')">Batch Calculator</a>
-      <a href="#" onclick="showPage('safety')">Safety</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
     </div>
     <p>© 2025 Herbal VapoRub. All rights reserved.</p>
   </footer>
@@ -739,372 +890,6 @@
     <div class="footer-links">
       <a href="#" onclick="showPage('home')">Home</a>
       <a href="#" onclick="showPage('procedure')">How to Make</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
-    </div>
-    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
-  </footer>
-</div>
-
-<!-- ===== VIDEOS PAGE ===== -->
-<div id="page-videos" class="page">
-  <section class="section">
-    <div class="section-title fade-up">
-      <h2>Video Library</h2>
-      <div class="divider"></div>
-      <p>Watch tutorials, ingredient breakdowns, and safety guides from our herbal wellness experts.</p>
-    </div>
-    <!-- VIDEO LINKS -->
-    <div style="max-width:700px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:24px;">
-
-      <!-- Link 1 -->
-      <a href="https://youtu.be/esDT9DUxPhE?feature=shared" target="_blank"
-        style="text-decoration:none; background:white; border-radius:20px; padding:32px 28px; display:flex; flex-direction:column; align-items:center; gap:16px; box-shadow:var(--shadow); border:2px solid rgba(76,175,125,0.15); transition:all 0.3s;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='var(--green-mid)'"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(76,175,125,0.15)'">
-        <div style="width:64px;height:64px;background:linear-gradient(135deg,var(--green-dark),var(--green-mid));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">▶️</div>
-        <div style="text-align:center;">
-          <span style="background:var(--green-light);color:white;font-size:0.72rem;font-weight:700;padding:3px 12px;border-radius:10px;text-transform:uppercase;letter-spacing:0.5px;">📽 Full Video</span>
-          <h4 style="color:var(--green-dark);margin:10px 0 6px;font-family:'Playfair Display',serif;font-size:1.1rem;">Herbal VapoRub</h4>
-          <p style="color:var(--text-light);font-size:0.85rem;">Watch our full video on YouTube</p>
-        </div>
-        <span style="color:var(--green-mid);font-weight:700;font-size:0.85rem;">🔗 youtu.be/esDT9DUxPhE</span>
-      </a>
-
-      <!-- Link 2 -->
-      <a href="https://youtube.com/shorts/ag9MFIQMUJc" target="_blank"
-        style="text-decoration:none; background:white; border-radius:20px; padding:32px 28px; display:flex; flex-direction:column; align-items:center; gap:16px; box-shadow:var(--shadow); border:2px solid rgba(200,169,110,0.25); transition:all 0.3s;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='var(--gold)'"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(200,169,110,0.25)'">
-        <div style="width:64px;height:64px;background:linear-gradient(135deg,#c8a96e,#e0c080);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">⚡</div>
-        <div style="text-align:center;">
-          <span style="background:var(--gold);color:var(--green-dark);font-size:0.72rem;font-weight:700;padding:3px 12px;border-radius:10px;text-transform:uppercase;letter-spacing:0.5px;">⚡ Short</span>
-          <h4 style="color:var(--green-dark);margin:10px 0 6px;font-family:'Playfair Display',serif;font-size:1.1rem;">Quick Demo</h4>
-          <p style="color:var(--text-light);font-size:0.85rem;">60-second short on YouTube</p>
-        </div>
-        <span style="color:var(--green-mid);font-weight:700;font-size:0.85rem;">🔗 youtube.com/shorts/ag9MFIQMUJc</span>
-      </a>
-
-    </div>
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('faq')">FAQ</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
-    </div>
-    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
-  </footer>
-</div>
-
-<!-- Video Modal -->
-<div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal(event)">
-  <div class="video-modal" onclick="event.stopPropagation()">
-    <span class="video-modal-close" onclick="closeVideoModal()">✕</span>
-    <h3 id="videoTitle" style="font-family:'Playfair Display',serif; color:var(--green-dark); margin-top:8px;"></h3>
-    <div class="video-embed" id="videoEmbed">
-      <div>🎬 Loading video...</div>
-    </div>
-    <p style="margin-top:14px; font-size:0.85rem; color:var(--text-light);">
-      Click the link below to watch the full video on YouTube:
-    </p>
-    <a id="videoLink" href="#" target="_blank" style="color:var(--green-mid); font-weight:700; font-size:0.9rem;">🔗 Watch on YouTube →</a>
-  </div>
-</div>
-
-<!-- ===== FAQ PAGE ===== -->
-<div id="page-faq" class="page">
-  <section class="section">
-    <div class="section-title fade-up">
-      <h2>Frequently Asked Questions</h2>
-      <div class="divider"></div>
-      <p>Everything you need to know about our Herbal VapoRub.</p>
-    </div>
-    <div class="faq-list fade-up">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What is Herbal VapoRub and how does it differ from regular Vicks? <span>+</span></div>
-        <div class="faq-a">Our Herbal VapoRub is a 100% natural alternative to conventional petroleum-based chest rubs. Unlike Vicks VapoRub which uses a petrolatum (petroleum jelly) base, our formula uses natural beeswax, coconut oil, and olive oil. We use pure essential oils instead of synthetic fragrances, and avoid all preservatives, colorants, and artificial additives.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is it safe for babies and young children? <span>+</span></div>
-        <div class="faq-a">Children under 2 years old: We strongly advise AGAINST use. Camphor and menthol (from peppermint) can be harmful to very young children and may cause breathing difficulties. For children aged 2–12: Use with caution and consult a pediatrician first. Apply only to the chest and back — never near the face, nose, or mouth. Always use a very small amount. For children over 12 and adults: Generally safe as directed. If in doubt, consult your healthcare provider.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How long does one 20 ml jar last? <span>+</span></div>
-        <div class="faq-a">With regular daily use (once per day), a 20 ml jar typically lasts 2–4 weeks, as you only need a pea-sized amount per application. If used only during colds or congestion episodes, the jar can last several months. Once opened, use within 6 months for best potency of essential oils.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What is the shelf life of the product? <span>+</span></div>
-        <div class="faq-a">Unopened, our Herbal VapoRub has a shelf life of 12 months stored in a cool, dry place away from direct sunlight. Once opened, use within 6 months for optimal fragrance and therapeutic potency. The beeswax and oils naturally resist rancidity, but essential oils can lose potency over time. Always check for any change in smell or texture before use.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Where should I apply Herbal VapoRub? <span>+</span></div>
-        <div class="faq-a">Apply to the chest and upper back for respiratory relief. It can also be applied to the neck (under the chin area) for throat and nasal congestion. For muscle aches, apply to the affected muscle area. Always avoid: eyes, inside the nose, near mouth, broken or irritated skin, and mucous membranes. Never ingest.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Can I use it during pregnancy? <span>+</span></div>
-        <div class="faq-a">Pregnant and breastfeeding women should consult their healthcare provider before use. Camphor and some essential oils (including clove and peppermint in large amounts) may have contraindications during pregnancy. External topical application in very small amounts is generally considered low-risk, but medical guidance is always recommended during pregnancy.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How is the product packaged and shipped? <span>+</span></div>
-        <div class="faq-a">Each 20 ml jar is packed in a clean glass jar with a secure screw-top lid, wrapped in protective bubble wrap, and shipped in a sturdy cardboard box. Orders are dispatched within 1–2 business days. We use eco-friendly packaging materials wherever possible. A product label with ingredients and usage instructions is included.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Can I use this for aromatherapy or diffusing? <span>+</span></div>
-        <div class="faq-a">Our VapoRub is formulated specifically for topical application, not for diffusers. However, you can place the open jar near a bedside table to enjoy gentle aromatherapy as the natural vapors release at room temperature. For active diffusing, we recommend using pure eucalyptus or peppermint essential oils diluted in water in a standard ultrasonic diffuser.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is the product vegan? <span>+</span></div>
-        <div class="faq-a">Our formula contains beeswax, which is an animal-derived product, making it not strictly vegan but it is vegetarian. For those who follow a vegan lifestyle, we acknowledge that beeswax is an animal byproduct. All other ingredients in our formula are 100% plant-based. We are always researching vegan alternatives such as candelilla wax for future product variations.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What if I have a skin reaction or sensitivity? <span>+</span></div>
-        <div class="faq-a">Perform a patch test before first use: apply a small amount to the inner wrist or elbow and wait 24 hours. If you experience redness, itching, burning, or irritation, discontinue use immediately and wash the area with soap and water. People with sensitivities to tree nuts (coconut) or bee products (beeswax) should exercise extra caution. If a severe reaction occurs, seek medical attention.</div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('safety')">Safety</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
-    </div>
-    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
-  </footer>
-</div>
-
-<!-- ===== SAFETY PAGE ===== -->
-<div id="page-safety" class="page">
-  <section class="section">
-    <div class="section-title fade-up">
-      <h2>Safety Information</h2>
-      <div class="divider"></div>
-      <p>Your safety is our top priority. Please read all guidelines before use.</p>
-    </div>
-    <div class="safety-hero fade-up">
-      <div class="safety-hero-icon">🛡️</div>
-      <div>
-        <h2>Use Safely, Breathe Freely</h2>
-        <p>Our Herbal VapoRub is crafted from natural ingredients and is generally safe for adults and children over 2 years when used as directed. However, natural does not always mean risk-free for everyone. Essential oils are highly concentrated and must be treated with respect. Please read all safety information before first use and keep this product out of reach of children.</p>
-      </div>
-    </div>
-
-    <div class="safety-grid">
-      <div class="safety-card danger fade-up">
-        <h4>🚫 Do NOT Use On / For</h4>
-        <ul>
-          <li>Children under 2 years old</li>
-          <li>Inside the nose, mouth, or ears</li>
-          <li>Directly on the face of infants</li>
-          <li>Broken, cut, or irritated skin</li>
-          <li>Open wounds or rashes</li>
-          <li>Near eyes or mucous membranes</li>
-          <li>Ingestion — for external use only</li>
-        </ul>
-      </div>
-      <div class="safety-card warn fade-up">
-        <h4>⚠️ Use with Caution</h4>
-        <ul>
-          <li>Children aged 2–12 (small amounts only)</li>
-          <li>Pregnant or breastfeeding women</li>
-          <li>People with asthma or respiratory conditions</li>
-          <li>Individuals with epilepsy (camphor alert)</li>
-          <li>Known allergy to beeswax or tree nuts</li>
-          <li>Sensitive or reactive skin types</li>
-        </ul>
-      </div>
-      <div class="safety-card safe fade-up">
-        <h4>✅ Safe Practices</h4>
-        <ul>
-          <li>Always do a patch test before first use</li>
-          <li>Apply only to chest, back, and neck</li>
-          <li>Use pea-sized amount per application</li>
-          <li>Wash hands after application</li>
-          <li>Keep jar tightly closed when not in use</li>
-          <li>Store away from heat and direct sunlight</li>
-          <li>Use within 6 months of opening</li>
-        </ul>
-      </div>
-      <div class="safety-card info fade-up">
-        <h4>ℹ️ Camphor Safety Notice</h4>
-        <ul>
-          <li>Camphor can be toxic if ingested</li>
-          <li>Even small oral doses are dangerous for children</li>
-          <li>Keep all camphor products locked away from kids</li>
-          <li>Do not apply near infant's face or nose</li>
-          <li>Camphor vapors should not be directly inhaled by infants</li>
-          <li>If accidentally ingested, call Poison Control immediately</li>
-        </ul>
-      </div>
-      <div class="safety-card info fade-up">
-        <h4>🌿 Essential Oil Safety</h4>
-        <ul>
-          <li>Pure essential oils are highly concentrated</li>
-          <li>Eucalyptus can be toxic in large amounts internally</li>
-          <li>Peppermint (menthol) may cause breathing issues in infants</li>
-          <li>Clove oil is a skin sensitizer — always diluted in our formula</li>
-          <li>Do not apply undiluted essential oils directly to skin</li>
-          <li>Keep away from pets, especially cats</li>
-        </ul>
-      </div>
-      <div class="safety-card safe fade-up">
-        <h4>🏥 When to Seek Medical Help</h4>
-        <ul>
-          <li>Severe skin reaction or chemical burn</li>
-          <li>Product contact with eyes (flush with water, see doctor)</li>
-          <li>Accidental ingestion — call Poison Control immediately</li>
-          <li>Respiratory distress after use</li>
-          <li>Allergic reaction (hives, swelling, difficulty breathing)</li>
-          <li>Persistent rash or irritation</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="max-width:1100px; margin: 40px auto 0; background: var(--green-dark); color:white; border-radius:16px; padding:28px 32px; text-align:center;">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:10px; font-size:1.4rem;">🆘 Emergency Contacts</h3>
-      <p style="opacity:0.85; margin-bottom:16px;">In case of accidental ingestion or severe reaction:</p>
-      <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-        <div style="background:rgba(255,255,255,0.1); border-radius:12px; padding:16px 24px;">
-          <div style="font-size:1.5rem; margin-bottom:6px;">🇺🇸</div>
-          <div style="font-weight:700; color:var(--gold);">Poison Control (US)</div>
-          <div style="font-size:1.2rem; font-weight:700;">1-800-222-1222</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.1); border-radius:12px; padding:16px 24px;">
-          <div style="font-size:1.5rem; margin-bottom:6px;">🇮🇳</div>
-          <div style="font-weight:700; color:var(--gold);">India Poison Control</div>
-          <div style="font-size:1.2rem; font-weight:700;">1800-116-117</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.1); border-radius:12px; padding:16px 24px;">
-          <div style="font-size:1.5rem; margin-bottom:6px;">🚑</div>
-          <div style="font-weight:700; color:var(--gold);">Emergency Services</div>
-          <div style="font-size:1.2rem; font-weight:700;">Call 911 / 112</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('faq')">FAQ</a>
-      <a href="#" onclick="showPage('order')">Order Now</a>
-    </div>
-    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
-    <p style="margin-top:8px; opacity:0.6; font-size:0.78rem;">This product is not intended to diagnose, treat, cure, or prevent any disease or medical condition.</p>
-  </footer>
-</div>
-
-<!-- ===== ORDER PAGE ===== -->
-<div id="page-order" class="page">
-  <section class="section">
-    <div class="section-title fade-up">
-      <h2>Place Your Order</h2>
-      <div class="divider"></div>
-      <p>Handcrafted and dispatched fresh within 1–2 business days.</p>
-    </div>
-    <div class="order-layout">
-      <div class="product-preview fade-up">
-        <img src="/mnt/user-data/uploads/1000065646.jpg" alt="Herbal VapoRub" onerror="this.style.background='var(--green-light)'">
-        <h3>Herbal VapoRub</h3>
-        <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:10px;">20 ml Glass Jar • Handcrafted</p>
-        <div class="product-price" id="productPrice">₹299 <span>/ jar</span></div>
-        <div class="product-tags">
-          <span class="ptag">🐝 Beeswax</span>
-          <span class="ptag">🌿 Natural</span>
-          <span class="ptag">✋ Handmade</span>
-          <span class="ptag">📦 20 ml</span>
-          <span class="ptag">No Preservatives</span>
-        </div>
-        <div style="margin-top:24px; background:#f0f7f2; border-radius:12px; padding:18px;">
-          <h4 style="color:var(--green-dark); margin-bottom:12px; font-size:0.95rem;">📦 Volume Discounts</h4>
-          <div style="font-size:0.83rem; color:var(--text-light); line-height:2;">
-            <div>1–2 jars: ₹299/jar</div>
-            <div style="color:var(--green-mid); font-weight:700;">3–5 jars: ₹269/jar (save 10%)</div>
-            <div style="color:var(--green-dark); font-weight:700;">6+ jars: ₹249/jar (save 17%)</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="order-form fade-up" id="orderFormWrapper">
-        <h3>📋 Order Details</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name *</label>
-            <input type="text" id="fname" placeholder="Your first name">
-          </div>
-          <div class="form-group">
-            <label>Last Name *</label>
-            <input type="text" id="lname" placeholder="Your last name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address *</label>
-          <input type="email" id="email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" id="phone" placeholder="+91 or your country code">
-        </div>
-        <div class="form-group">
-          <label>Delivery Address *</label>
-          <textarea id="address" rows="3" placeholder="Full delivery address including city, state, and PIN code"></textarea>
-        </div>
-        <div class="form-group">
-          <label>Quantity</label>
-          <div class="qty-control">
-            <button class="qty-btn" onclick="changeQty(-1)">−</button>
-            <span class="qty-display" id="qtyDisplay">1</span>
-            <button class="qty-btn" onclick="changeQty(1)">+</button>
-            <span style="color:var(--text-light); font-size:0.88rem; margin-left:8px;">× 20 ml jar</span>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Special Instructions (optional)</label>
-          <textarea id="notes" rows="2" placeholder="Any special requests, gift packaging, etc."></textarea>
-        </div>
-        <div class="form-group">
-          <label>Payment Method *</label>
-          <select id="payment">
-            <option value="">Select payment method</option>
-            <option>UPI / Google Pay / PhonePe</option>
-            <option>Bank Transfer (NEFT/IMPS)</option>
-            <option>Cash on Delivery (COD)</option>
-            <option>PayPal (International)</option>
-          </select>
-        </div>
-        <div class="order-total">
-          <div>
-            <div class="order-total-label">Order Total</div>
-            <div style="font-size:0.8rem; opacity:0.7;" id="discountLabel"></div>
-          </div>
-          <div class="order-total-amount" id="totalAmount">₹299</div>
-        </div>
-        <button class="submit-btn" onclick="placeOrder()">🛒 Place Order Now</button>
-        <p style="text-align:center; margin-top:14px; font-size:0.8rem; color:var(--text-light);">🔒 Your information is kept private and secure. We will confirm your order via WhatsApp/SMS within 2 hours.</p>
-      </div>
-
-      <div class="order-success" id="orderSuccess" style="grid-column: 2;">
-        <div class="success-icon">🎉</div>
-        <h3>Order Placed Successfully!</h3>
-        <p>Thank you for your order, <strong id="successName"></strong>!<br>
-        We've received your order and will confirm via WhatsApp/SMS within 2 hours.<br>
-        Your Herbal VapoRub will be dispatched within 1–2 business days.</p>
-        <div style="margin-top:24px; background:#e8f5e9; border-radius:14px; padding:20px; text-align:left;">
-          <h4 style="color:var(--green-dark); margin-bottom:12px;">📦 What's Next?</h4>
-          <ol style="padding-left:20px; color:var(--text-light); font-size:0.9rem; line-height:2;">
-            <li>You'll receive an order confirmation SMS/WhatsApp</li>
-            <li>We'll prepare your fresh batch (1–2 business days)</li>
-            <li>Package is dispatched with tracking number</li>
-            <li>Delivery in 3–7 business days (location dependent)</li>
-          </ol>
-        </div>
-        <button class="btn btn-gold" style="margin-top:24px;" onclick="showPage('home')">← Back to Home</button>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-links">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('faq')">FAQ</a>
-      <a href="#" onclick="showPage('safety')">Safety</a>
     </div>
     <p>© 2025 Herbal VapoRub. All rights reserved.</p>
   </footer>
@@ -1114,6 +899,20 @@
 <div class="toast" id="toast"></div>
 
 <script>
+// ===== THEME TOGGLE =====
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  document.getElementById('themeToggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('herbalTheme', isDark ? 'dark' : 'light');
+}
+// Load saved theme
+(function() {
+  if (localStorage.getItem('herbalTheme') === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('themeToggle').textContent = '☀️';
+  }
+})();
+
 // ===== NAVIGATION =====
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1249,6 +1048,12 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ===== COPY REFERENCES =====
+function copyRefs() {
+  const refs = `HERBAL VAPORUB — REFERENCES\n\n[1] Wikipedia contributors. Vicks VapoRub. Wikipedia, The Free Encyclopedia.\n    https://en.wikipedia.org/wiki/Vicks_VapoRub\n\n[2] Remington: The Science and Practice of Pharmacy. Pharmaceutical Press, London.\n\n[2a] Peppermint Oil (Mentha piperita) — menthol ~45%. Remington, pp. 300–310.\n[2b] Camphor (Cinnamomum camphora). Remington, pp. 250–260.\n[2c] Eucalyptus Oil (Eucalyptus globulus) — cineole ~70%. Remington, pp. 260–270.\n[2d] Clove Oil (Syzygium aromaticum) — eugenol 85–90%. Remington, pp. 280–290.`;
+  navigator.clipboard.writeText(refs).then(() => showToast('📋 References copied!'));
 }
 
 // ===== KEYBOARD =====
