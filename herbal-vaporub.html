@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herbal VapoRub – Soothing Relief with Natural Ingredients</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a4d2e;
+    --green-mid: #2d7a4f;
+    --green-light: #4caf7d;
+    --gold: #c8a96e;
+    --cream: #f9f6f0;
+    --white: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #5a5a5a;
+    --shadow: 0 8px 32px rgba(26,77,46,0.12);
+    --bg: #f9f6f0;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(249,246,240,0.97);
+    --border: rgba(76,175,125,0.15);
+    --input-bg: #fcfcfc;
+    --input-border: #ddd;
+    --neon: none;
+  }
+
+  body.dark {
+    --green-dark: #00ff88;
+    --green-mid: #00cc6a;
+    --green-light: #00ff88;
+    --gold: #ffe066;
+    --cream: #0a0f0a;
+    --white: #e0ffe0;
+    --text: #e0ffe0;
+    --text-light: #88ccaa;
+    --shadow: 0 8px 32px rgba(0,255,136,0.08);
+    --bg: #0a0f0a;
+    --card-bg: #0f1a12;
+    --nav-bg: rgba(10,15,10,0.97);
+    --border: rgba(0,255,136,0.18);
+    --input-bg: #0d1a10;
+    --input-border: rgba(0,255,136,0.25);
+    --neon: 0 0 8px rgba(0,255,136,0.6), 0 0 20px rgba(0,255,136,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  /* ===== THEME TOGGLE ===== */
+  .theme-toggle {
+    position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--green-light);
+    box-shadow: var(--neon), 0 4px 20px rgba(0,0,0,0.3);
+    cursor: pointer; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .theme-toggle:hover { transform: scale(1.12) rotate(20deg); }
+
+  /* ===== DARK BODY OVERRIDES ===== */
+  body.dark {
+    background: #0a0f0a;
+  }
+  body.dark nav {
+    background: rgba(10,15,10,0.97);
+    border-bottom: 2px solid rgba(0,255,136,0.4);
+    box-shadow: 0 2px 30px rgba(0,255,136,0.1);
+  }
+  body.dark .nav-logo span { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.5); }
+  body.dark .nav-logo img { border-color: #00ff88; box-shadow: 0 0 14px rgba(0,255,136,0.5); }
+  body.dark .nav-links a { color: #88ccaa; }
+  body.dark .nav-links a:hover, body.dark .nav-links a.active {
+    background: rgba(0,255,136,0.15);
+    color: #00ff88;
+    text-shadow: 0 0 8px rgba(0,255,136,0.7);
+    box-shadow: 0 0 12px rgba(0,255,136,0.2);
+  }
+  body.dark .nav-order-btn {
+    background: rgba(0,255,136,0.15) !important;
+    color: #00ff88 !important;
+    border: 1px solid rgba(0,255,136,0.4) !important;
+    box-shadow: 0 0 12px rgba(0,255,136,0.2) !important;
+  }
+  body.dark .nav-order-btn:hover {
+    background: rgba(0,255,136,0.3) !important;
+    box-shadow: 0 0 20px rgba(0,255,136,0.4) !important;
+  }
+  body.dark .hero {
+    background: linear-gradient(135deg, #020a04 0%, #061a0a 50%, #041208 100%);
+  }
+  body.dark .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(0,255,136,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  body.dark .hero-logo {
+    border-color: #00ff88;
+    box-shadow: 0 0 40px rgba(0,255,136,0.5), 0 0 80px rgba(0,255,136,0.2);
+  }
+  body.dark .hero h1 { text-shadow: 0 0 30px rgba(0,255,136,0.3); }
+  body.dark .hero h1 em { color: #ffe066; text-shadow: 0 0 20px rgba(255,224,102,0.6); }
+  body.dark .badge {
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.3);
+    color: #00ff88;
+    text-shadow: 0 0 6px rgba(0,255,136,0.4);
+  }
+  body.dark .btn-gold {
+    background: rgba(255,224,102,0.15);
+    color: #ffe066;
+    border: 1px solid rgba(255,224,102,0.4);
+    box-shadow: 0 0 16px rgba(255,224,102,0.2);
+  }
+  body.dark .btn-gold:hover {
+    background: rgba(255,224,102,0.25);
+    box-shadow: 0 0 28px rgba(255,224,102,0.4);
+  }
+  body.dark .btn-outline {
+    border-color: rgba(0,255,136,0.5);
+    color: #00ff88;
+    box-shadow: 0 0 12px rgba(0,255,136,0.2);
+  }
+  body.dark .btn-outline:hover {
+    background: rgba(0,255,136,0.1);
+    box-shadow: 0 0 24px rgba(0,255,136,0.4);
+  }
+  body.dark .section { background: #0a0f0a; }
+  body.dark .ingredients-bg { background: linear-gradient(180deg, #060e08 0%, #0a0f0a 100%); }
+  body.dark .section-title h2 {
+    color: #00ff88;
+    text-shadow: 0 0 20px rgba(0,255,136,0.4);
+  }
+  body.dark .section-title p { color: #88ccaa; }
+  body.dark .section-title .divider { background: #ffe066; box-shadow: 0 0 10px rgba(255,224,102,0.5); }
+  body.dark .feature-card {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.15);
+    box-shadow: 0 4px 20px rgba(0,255,136,0.05);
+  }
+  body.dark .feature-card:hover {
+    border-color: rgba(0,255,136,0.4);
+    box-shadow: 0 8px 40px rgba(0,255,136,0.15), 0 0 0 1px rgba(0,255,136,0.1);
+    transform: translateY(-6px);
+  }
+  body.dark .feature-card h3 { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.3); }
+  body.dark .feature-card p { color: #88ccaa; }
+  body.dark .ing-card {
+    background: #0f1a12;
+    border-left: 5px solid #00ff88;
+    box-shadow: 0 0 20px rgba(0,255,136,0.06), -2px 0 10px rgba(0,255,136,0.1);
+  }
+  body.dark .ing-card:hover { box-shadow: 0 0 30px rgba(0,255,136,0.15), -4px 0 16px rgba(0,255,136,0.2); }
+  body.dark .ing-card h4 { color: #00ff88; }
+  body.dark .ing-card .amount { background: rgba(0,255,136,0.15); color: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.2); }
+  body.dark .ing-card p { color: #88ccaa; }
+  body.dark .calc-wrapper {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .calc-intro { color: #88ccaa; }
+  body.dark .calc-slider-group label { color: #00ff88; }
+  body.dark .calc-slider-group label span { background: rgba(0,255,136,0.15); color: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.2); }
+  body.dark input[type=range] { background: linear-gradient(to right, #00ff88, #00cc6a); }
+  body.dark input[type=range]::-webkit-slider-thumb { background: #00ff88; border-color: #0a0f0a; box-shadow: 0 0 10px rgba(0,255,136,0.6); }
+  body.dark .calc-results { background: linear-gradient(135deg, #061208, #0a1e0e); border: 1px solid rgba(0,255,136,0.2); }
+  body.dark .calc-row { border-bottom-color: rgba(0,255,136,0.1); }
+  body.dark .calc-btn { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 14px rgba(0,255,136,0.15); }
+  body.dark .calc-btn:hover { background: rgba(0,255,136,0.25); box-shadow: 0 0 24px rgba(0,255,136,0.3); }
+  body.dark .faq-item { background: #0f1a12; border: 1px solid rgba(0,255,136,0.15); }
+  body.dark .faq-q { color: #00ff88; }
+  body.dark .faq-q:hover { background: rgba(0,255,136,0.06); }
+  body.dark .faq-q span { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.5); }
+  body.dark .faq-a { color: #88ccaa; }
+  body.dark .faq-item.open { box-shadow: 0 0 20px rgba(0,255,136,0.1), inset 0 0 20px rgba(0,255,136,0.02); }
+  body.dark .video-card { background: #0f1a12; border: 1px solid rgba(0,255,136,0.12); }
+  body.dark .video-card:hover { box-shadow: 0 0 30px rgba(0,255,136,0.15); border-color: rgba(0,255,136,0.3); }
+  body.dark .video-info h4 { color: #00ff88; }
+  body.dark .video-info p { color: #88ccaa; }
+  body.dark .safety-hero { background: linear-gradient(135deg, #0d1a08, #061208); border-color: rgba(255,224,102,0.3); box-shadow: 0 0 30px rgba(255,224,102,0.05); }
+  body.dark .safety-hero h2 { color: #00ff88; text-shadow: 0 0 16px rgba(0,255,136,0.4); }
+  body.dark .safety-hero p { color: #88ccaa; }
+  body.dark .safety-card.warn { background: #1a1400; border-left-color: #ffe066; }
+  body.dark .safety-card.safe { background: #061208; border-left-color: #00ff88; }
+  body.dark .safety-card.info { background: #060d1a; border-left-color: #00aaff; }
+  body.dark .safety-card.danger { background: #1a0608; border-left-color: #ff4488; }
+  body.dark .safety-card h4 { color: #e0ffe0; }
+  body.dark .safety-card ul { color: #88ccaa; }
+  body.dark .product-preview {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .product-preview img { border-color: #00ff88; box-shadow: 0 0 20px rgba(0,255,136,0.3); }
+  body.dark .product-preview h3 { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,0.4); }
+  body.dark .product-price { color: #00ff88; text-shadow: 0 0 16px rgba(0,255,136,0.5); }
+  body.dark .ptag { background: rgba(0,255,136,0.1); color: #00ff88; }
+  body.dark .order-form {
+    background: #0f1a12;
+    border: 1px solid rgba(0,255,136,0.2);
+    box-shadow: 0 0 40px rgba(0,255,136,0.08);
+  }
+  body.dark .order-form h3 { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,0.3); }
+  body.dark .form-group label { color: #00ff88; }
+  body.dark .form-group input, body.dark .form-group select, body.dark .form-group textarea {
+    background: #0a1208; border-color: rgba(0,255,136,0.2); color: #e0ffe0;
+  }
+  body.dark .form-group input:focus, body.dark .form-group select:focus, body.dark .form-group textarea:focus {
+    border-color: #00ff88; box-shadow: 0 0 12px rgba(0,255,136,0.2); background: #0d1a10;
+  }
+  body.dark .qty-btn { border-color: rgba(0,255,136,0.4); background: #0a1208; color: #00ff88; }
+  body.dark .qty-btn:hover { background: rgba(0,255,136,0.15); box-shadow: 0 0 12px rgba(0,255,136,0.3); }
+  body.dark .qty-display { color: #00ff88; text-shadow: 0 0 10px rgba(0,255,136,0.5); }
+  body.dark .submit-btn { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 16px rgba(0,255,136,0.15); }
+  body.dark .submit-btn:hover { background: rgba(0,255,136,0.25); box-shadow: 0 0 30px rgba(0,255,136,0.35); }
+  body.dark .order-total { background: linear-gradient(135deg, #061208, #0a1e0e); border: 1px solid rgba(0,255,136,0.2); }
+  body.dark .order-success h3 { color: #00ff88; }
+  body.dark .order-success p { color: #88ccaa; }
+  body.dark .proc-timeline::before { background: linear-gradient(to bottom, #00ff88, #00cc6a); box-shadow: 0 0 10px rgba(0,255,136,0.4); }
+  body.dark .proc-num { background: rgba(0,255,136,0.15); color: #00ff88; border-color: #0a0f0a; box-shadow: 0 0 16px rgba(0,255,136,0.4); }
+  body.dark .proc-content { background: #0f1a12; border: 1px solid rgba(0,255,136,0.12); }
+  body.dark .proc-content h4 { color: #00ff88; }
+  body.dark .proc-content p { color: #88ccaa; }
+  body.dark .proc-tip { background: #1a1400; color: #ffe066; }
+  body.dark footer { background: #060e08; border-top: 1px solid rgba(0,255,136,0.2); }
+  body.dark footer .footer-links a { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.4); }
+  body.dark .about-strip { background: #060e08; border-bottom: 1px solid rgba(0,255,136,0.15); }
+  body.dark .about-strip strong { color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,0.5); }
+  body.dark .toast { background: #0f1a12; border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 0 30px rgba(0,255,136,0.2); color: #00ff88; }
+
+  /* Neon scan line effect on dark */
+  body.dark::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 99999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,136,0.012) 2px,
+      rgba(0,255,136,0.012) 4px
+    );
+  }
+
+  /* Neon glow pulse on cards in dark mode */
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(0,255,136,0.15), 0 0 20px rgba(0,255,136,0.05); }
+    50% { box-shadow: 0 0 16px rgba(0,255,136,0.3), 0 0 40px rgba(0,255,136,0.1); }
+  }
+  body.dark .feature-card, body.dark .ing-card, body.dark .faq-item {
+    animation: neonPulse 4s ease-in-out infinite;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(249,246,240,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--green-light);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0 2px 20px rgba(26,77,46,0.08);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .nav-logo img { height: 56px; border-radius: 50%; border: 2px solid var(--green-light); }
+  .nav-logo span { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--green-dark); line-height:1.2; }
+  .nav-links { display: flex; gap: 6px; list-style: none; flex-wrap: wrap; }
+  .nav-links a {
+    text-decoration: none; color: var(--green-dark); font-weight: 700; font-size: 0.82rem;
+    padding: 7px 13px; border-radius: 20px; transition: all 0.3s;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--green-dark); color: var(--white);
+  }
+  .nav-order-btn {
+    background: var(--gold); color: var(--green-dark) !important;
+    font-weight: 700 !important; border-radius: 20px !important;
+  }
+  .nav-order-btn:hover { background: var(--green-dark) !important; color: var(--white) !important; }
+
+  /* ===== PAGES ===== */
+  .page { display: none; padding-top: 80px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 50%, #1a6b40 100%);
+    color: white; padding: 80px 40px 60px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden;
+    min-height: 88vh;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { max-width: 800px; position: relative; z-index: 1; }
+  .hero-logo {
+    width: 180px; height: 180px; border-radius: 50%;
+    border: 4px solid var(--gold); margin: 0 auto 32px;
+    box-shadow: 0 0 60px rgba(200,169,110,0.4);
+    object-fit: cover;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.6rem);
+    margin-bottom: 8px; line-height: 1.1;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); font-family: 'Dancing Script', cursive; font-size: 1.2em; }
+  .hero p { font-size: 1.15rem; opacity: 0.9; margin: 16px 0 36px; line-height: 1.7; font-weight: 300; }
+  .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+  .badge {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px; padding: 8px 18px; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .btn {
+    display: inline-block; padding: 14px 34px; border-radius: 40px;
+    font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    cursor: pointer; transition: all 0.3s; border: none; letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .btn-gold { background: var(--gold); color: var(--green-dark); }
+  .btn-gold:hover { background: #e0c080; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.4); }
+  .btn-outline { background: transparent; border: 2px solid white; color: white; margin-left: 12px; }
+  .btn-outline:hover { background: white; color: var(--green-dark); }
+
+  /* ===== SECTION BASE ===== */
+  .section { padding: 72px 40px; }
+  .section-title {
+    text-align: center; margin-bottom: 52px;
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,2.8rem);
+    color: var(--green-dark); margin-bottom: 10px;
+  }
+  .section-title p { color: var(--text-light); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+  .section-title .divider {
+    width: 60px; height: 3px; background: var(--gold);
+    margin: 14px auto; border-radius: 3px;
+  }
+
+  /* ===== FEATURES GRID ===== */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+  .feature-card {
+    background: white; border-radius: 20px; padding: 36px 28px; text-align: center;
+    box-shadow: var(--shadow); border: 1px solid rgba(76,175,125,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,77,46,0.15); }
+  .feature-icon { font-size: 2.6rem; margin-bottom: 16px; }
+  .feature-card h3 { font-family: 'Playfair Display', serif; color: var(--green-dark); margin-bottom: 10px; font-size: 1.2rem; }
+  .feature-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+
+  /* ===== INGREDIENTS ===== */
+  .ingredients-bg { background: linear-gradient(180deg, #f0f7f2 0%, var(--cream) 100%); }
+  .ingredients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .ing-card {
+    background: white; border-radius: 16px; padding: 28px;
+    border-left: 5px solid var(--green-mid);
+    box-shadow: var(--shadow); display: flex; gap: 18px; align-items: flex-start;
+    transition: transform 0.3s;
+  }
+  .ing-card:hover { transform: translateX(4px); }
+  .ing-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: 2px; }
+  .ing-card h4 { color: var(--green-dark); font-weight: 700; margin-bottom: 6px; font-size: 1.05rem; }
+  .ing-card .amount { font-size: 0.78rem; background: var(--green-light); color: white; padding: 2px 10px; border-radius: 10px; display: inline-block; margin-bottom: 8px; font-weight: 700; }
+  .ing-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.5; }
+
+  /* ===== CALCULATOR ===== */
+  .calc-wrapper { max-width: 700px; margin: 0 auto; background: white; border-radius: 24px; padding: 44px; box-shadow: var(--shadow); }
+  .calc-intro { text-align: center; margin-bottom: 32px; color: var(--text-light); font-size: 0.95rem; }
+  .calc-slider-group { margin-bottom: 28px; }
+  .calc-slider-group label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 700; color: var(--green-dark); font-size: 0.95rem; }
+  .calc-slider-group label span { background: var(--green-light); color: white; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem; }
+  input[type=range] {
+    width: 100%; height: 6px; -webkit-appearance: none;
+    background: linear-gradient(to right, var(--green-mid) 0%, var(--green-light) 100%);
+    border-radius: 3px; outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 22px; height: 22px;
+    background: var(--green-dark); border-radius: 50%;
+    border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .calc-results {
+    margin-top: 32px; background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    border-radius: 16px; padding: 28px; color: white;
+  }
+  .calc-results h3 { font-family: 'Playfair Display', serif; margin-bottom: 18px; font-size: 1.3rem; }
+  .calc-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.15); font-size: 0.92rem; }
+  .calc-row:last-child { border-bottom: none; font-weight: 700; font-size: 1rem; color: var(--gold); }
+  .calc-note { margin-top: 16px; font-size: 0.8rem; opacity: 0.75; font-style: italic; }
+  .calc-btn { width: 100%; margin-top: 24px; padding: 14px; background: var(--gold); color: var(--green-dark); border: none; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+  .calc-btn:hover { background: #e0c080; transform: translateY(-2px); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    background: white; border-radius: 14px; margin-bottom: 14px;
+    border: 1px solid rgba(76,175,125,0.15); overflow: hidden;
+    box-shadow: 0 3px 12px rgba(26,77,46,0.06);
+  }
+  .faq-q {
+    padding: 20px 26px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    font-weight: 700; color: var(--green-dark); font-size: 0.97rem;
+    transition: background 0.2s;
+  }
+  .faq-q:hover { background: #f0f7f2; }
+  .faq-q span { font-size: 1.4rem; transition: transform 0.3s; color: var(--green-mid); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 26px; color: var(--text-light); line-height: 1.7; font-size: 0.92rem; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 26px 22px; }
+
+  /* ===== VIDEOS ===== */
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+  .video-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow); transition: transform 0.3s;
+  }
+  .video-card:hover { transform: translateY(-6px); }
+  .video-thumb {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    height: 200px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; position: relative; overflow: hidden;
+  }
+  .video-thumb::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .play-btn {
+    width: 68px; height: 68px; background: rgba(255,255,255,0.95);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: var(--green-dark); transition: transform 0.3s;
+    position: relative; z-index: 1;
+  }
+  .video-thumb:hover .play-btn { transform: scale(1.12); }
+  .video-label {
+    position: absolute; bottom: 14px; left: 14px;
+    background: rgba(0,0,0,0.5); color: white; font-size: 0.75rem;
+    padding: 4px 10px; border-radius: 10px; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .video-info { padding: 22px 24px; }
+  .video-info h4 { color: var(--green-dark); font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
+  .video-info p { color: var(--text-light); font-size: 0.87rem; line-height: 1.5; }
+  .video-modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85); z-index: 9000;
+    align-items: center; justify-content: center;
+  }
+  .video-modal-overlay.open { display: flex; }
+  .video-modal { background: white; border-radius: 16px; padding: 28px; max-width: 680px; width: 90%; text-align: center; }
+  .video-modal-close { float: right; cursor: pointer; font-size: 1.5rem; color: var(--text-light); }
+  .video-embed { background: #000; height: 320px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; margin-top: 16px; }
+
+  /* ===== SAFETY ===== */
+  .safety-hero {
+    background: linear-gradient(135deg, #fff8e1, #f0f7f2);
+    border-radius: 24px; padding: 48px; margin: 0 0 48px;
+    display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
+    border: 2px solid var(--gold);
+    max-width: 1100px; margin: 0 auto 48px;
+  }
+  .safety-hero-icon { font-size: 5rem; flex-shrink: 0; }
+  .safety-hero h2 { font-family: 'Playfair Display', serif; color: var(--green-dark); font-size: 1.9rem; margin-bottom: 12px; }
+  .safety-hero p { color: var(--text-light); line-height: 1.7; font-size: 0.95rem; }
+  .safety-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .safety-card {
+    border-radius: 18px; padding: 30px;
+    box-shadow: var(--shadow); transition: transform 0.3s;
+  }
+  .safety-card:hover { transform: translateY(-4px); }
+  .safety-card.warn { background: #fff3cd; border-left: 5px solid #f0a500; }
+  .safety-card.safe { background: #e8f5e9; border-left: 5px solid var(--green-mid); }
+  .safety-card.info { background: #e3f2fd; border-left: 5px solid #2196f3; }
+  .safety-card.danger { background: #fce4ec; border-left: 5px solid #e91e63; }
+  .safety-card h4 { font-weight: 700; margin-bottom: 10px; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+  .safety-card ul { padding-left: 18px; color: var(--text-light); font-size: 0.88rem; line-height: 1.8; }
+
+  /* ===== ORDER PAGE ===== */
+  .order-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto; align-items: start; }
+  @media(max-width:768px) { .order-layout { grid-template-columns: 1fr; } }
+  .product-preview {
+    background: white; border-radius: 24px; padding: 40px; text-align: center;
+    box-shadow: var(--shadow);
+    position: sticky; top: 100px;
+  }
+  .product-preview img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--green-light); margin-bottom: 20px; }
+  .product-preview h3 { font-family: 'Playfair Display', serif; color: var(--green-dark); font-size: 1.6rem; margin-bottom: 8px; }
+  .product-price { font-size: 2rem; font-weight: 700; color: var(--green-mid); margin: 12px 0; }
+  .product-price span { font-size: 0.9rem; color: var(--text-light); font-weight: 400; }
+  .product-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+  .ptag { background: #e8f5e9; color: var(--green-dark); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; }
+  .order-form { background: white; border-radius: 24px; padding: 40px; box-shadow: var(--shadow); }
+  .order-form h3 { font-family: 'Playfair Display', serif; color: var(--green-dark); font-size: 1.5rem; margin-bottom: 28px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; font-size: 0.9rem; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 13px 16px; border: 2px solid #ddd; border-radius: 12px;
+    font-size: 0.93rem; font-family: 'Lato', sans-serif; transition: border-color 0.3s;
+    background: #fcfcfc; color: var(--text);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--green-mid);
+    background: white;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .qty-control { display: flex; align-items: center; gap: 16px; }
+  .qty-btn {
+    width: 42px; height: 42px; border: 2px solid var(--green-mid);
+    background: white; border-radius: 10px; font-size: 1.3rem; cursor: pointer;
+    color: var(--green-dark); transition: all 0.2s;
+  }
+  .qty-btn:hover { background: var(--green-mid); color: white; }
+  .qty-display { font-size: 1.3rem; font-weight: 700; color: var(--green-dark); min-width: 30px; text-align: center; }
+  .order-total { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); color: white; border-radius: 14px; padding: 20px 24px; margin: 24px 0; display: flex; justify-content: space-between; align-items: center; }
+  .order-total-label { font-size: 0.9rem; opacity: 0.8; }
+  .order-total-amount { font-size: 1.8rem; font-weight: 700; color: var(--gold); }
+  .submit-btn { width: 100%; padding: 16px; background: var(--green-dark); color: white; border: none; border-radius: 14px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Lato', sans-serif; letter-spacing: 0.5px; }
+  .submit-btn:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,77,46,0.25); }
+  .order-success { display: none; text-align: center; padding: 40px 20px; }
+  .order-success .success-icon { font-size: 4rem; margin-bottom: 16px; }
+  .order-success h3 { font-family: 'Playfair Display', serif; color: var(--green-dark); font-size: 1.7rem; margin-bottom: 12px; }
+  .order-success p { color: var(--text-light); line-height: 1.7; }
+
+  /* ===== PROCEDURE ===== */
+  .proc-timeline { max-width: 800px; margin: 0 auto; position: relative; }
+  .proc-timeline::before {
+    content: ''; position: absolute; left: 40px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, var(--green-dark), var(--green-light));
+    border-radius: 3px;
+  }
+  .proc-step {
+    display: flex; gap: 28px; align-items: flex-start;
+    margin-bottom: 36px; position: relative;
+  }
+  .proc-num {
+    width: 56px; height: 56px; background: var(--green-dark); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.2rem; flex-shrink: 0;
+    border: 4px solid var(--cream); position: relative; z-index: 1;
+    font-family: 'Playfair Display', serif;
+  }
+  .proc-content { background: white; border-radius: 16px; padding: 24px 28px; flex: 1; box-shadow: var(--shadow); }
+  .proc-content h4 { color: var(--green-dark); font-weight: 700; margin-bottom: 8px; font-size: 1.05rem; }
+  .proc-content p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+  .proc-tip { background: #fff3cd; border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 0.83rem; color: #7a5500; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--green-dark); color: rgba(255,255,255,0.85);
+    text-align: center; padding: 40px 20px;
+    font-size: 0.88rem;
+  }
+  footer p { margin-bottom: 6px; }
+  footer .footer-links { display: flex; justify-content: center; gap: 24px; margin: 16px 0; flex-wrap: wrap; }
+  footer .footer-links a { color: var(--gold); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+  footer .footer-links a:hover { opacity: 0.75; }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+    background: var(--green-dark); color: white; padding: 14px 22px;
+    border-radius: 12px; font-weight: 700; font-size: 0.9rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.4s;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ===== ABOUT STRIP ===== */
+  .about-strip {
+    background: var(--green-dark); color: white;
+    padding: 18px 40px; text-align: center; font-size: 0.88rem;
+    letter-spacing: 0.5px; font-weight: 300;
+  }
+  .about-strip strong { color: var(--gold); }
+
+  /* ===== SCROLL ANIMATION ===== */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: all 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media(max-width:600px) {
+    nav { padding: 10px 16px; }
+    .nav-links { gap: 3px; }
+    .nav-links a { padding: 5px 8px; font-size: 0.72rem; }
+    .section { padding: 52px 20px; }
+    .hero { padding: 60px 20px 40px; }
+    .calc-wrapper { padding: 28px 20px; }
+    .order-form, .product-preview { padding: 28px 20px; }
+    .safety-hero { padding: 28px 20px; }
+    .proc-timeline::before { left: 28px; }
+    .proc-num { width: 44px; height: 44px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="/mnt/user-data/uploads/1000065646.jpg" alt="Herbal VapoRub Logo" onerror="this.style.display='none'">
+    <span>Herbal<br>VapoRub</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('procedure')" id="nav-procedure">How to Make</a></li>
+    <li><a href="#" onclick="showPage('calculator')" id="nav-calculator">Calculator</a></li>
+  </ul>
+</nav>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+  <div class="about-strip">
+    🌿 <strong>100% Natural Ingredients</strong> &nbsp;|&nbsp; Handcrafted in Small Batches &nbsp;|&nbsp; No Preservatives &nbsp;|&nbsp; Gentle for the Whole Family
+  </div>
+
+  <div class="hero">
+    <div class="hero-content">
+      <img src="/mnt/user-data/uploads/1000065646.jpg" class="hero-logo" alt="Herbal VapoRub" onerror="this.style.display='none'">
+      <h1>Herbal <em>VapoRub</em></h1>
+      <p>Breathe easy with nature's finest — camphor, eucalyptus, peppermint & more,<br>lovingly blended in pure beeswax and nourishing plant oils.</p>
+      <div class="hero-badges">
+        <span class="badge">🐝 Beeswax Based</span>
+        <span class="badge">🌿 All Natural</span>
+        <span class="badge">✋ Handcrafted</span>
+        <span class="badge">20 ml Jar</span>
+      </div>
+      <a class="btn btn-gold" href="#" onclick="showPage('procedure')">How to Make</a>
+      <a class="btn btn-outline" href="#" onclick="showPage('calculator')">Ingredient Calculator</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-title fade-up">
+      <h2>Why Choose Our VapoRub?</h2>
+      <div class="divider"></div>
+      <p>A natural alternative to synthetic chest rubs — soothing, safe, and powerfully effective.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🌿</div>
+        <h3>Pure Natural Ingredients</h3>
+        <p>Every ingredient is carefully sourced — no artificial fragrances, no petroleum, no synthetic additives.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🐝</div>
+        <h3>Beeswax Base</h3>
+        <p>Our beeswax base creates a smooth, skin-friendly texture that melts gently on contact with your skin.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">💨</div>
+        <h3>Breathe-Easy Formula</h3>
+        <p>Eucalyptus, camphor, and peppermint work synergistically to open airways and ease congestion.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🫶</div>
+        <h3>Family Safe</h3>
+        <p>Gentle enough for the whole family. Always follow age guidelines for children under 2.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🔬</div>
+        <h3>Precise Formulation</h3>
+        <p>Each 20 ml batch is crafted with measured precision so you get consistent results every time.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">♻️</div>
+        <h3>Eco Packaging</h3>
+        <p>Packed in recyclable glass jars to keep your product fresh and reduce plastic waste.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f0f7f2; padding-top: 60px; padding-bottom: 60px;">
+    <div class="section-title">
+      <h2>How to Use</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="max-width:800px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:24px; text-align:center;">
+      <div>
+        <div style="font-size:2.5rem; margin-bottom:12px;">🤲</div>
+        <h4 style="color:var(--green-dark); margin-bottom:8px; font-weight:700;">Take a Small Amount</h4>
+        <p style="color:var(--text-light); font-size:0.88rem;">Scoop a pea-sized amount with your fingertip</p>
+      </div>
+      <div>
+        <div style="font-size:2.5rem; margin-bottom:12px;">🫁</div>
+        <h4 style="color:var(--green-dark); margin-bottom:8px; font-weight:700;">Apply to Chest</h4>
+        <p style="color:var(--text-light); font-size:0.88rem;">Rub gently on chest, neck, or back in circular motions</p>
+      </div>
+      <div>
+        <div style="font-size:2.5rem; margin-bottom:12px;">🌡️</div>
+        <h4 style="color:var(--green-dark); margin-bottom:8px; font-weight:700;">Warm Up</h4>
+        <p style="color:var(--text-light); font-size:0.88rem;">Body heat melts the balm for deep, soothing relief</p>
+      </div>
+      <div>
+        <div style="font-size:2.5rem; margin-bottom:12px;">😮‍💨</div>
+        <h4 style="color:var(--green-dark); margin-bottom:8px; font-weight:700;">Breathe Easy</h4>
+        <p style="color:var(--text-light); font-size:0.88rem;">Inhale the refreshing vapors and feel the relief</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('procedure')">How to Make</a>
+      <a href="#" onclick="showPage('calculator')">Calculator</a>
+    </div>
+    <p>© 2025 Herbal VapoRub. All rights reserved. | Handcrafted with ❤️ and nature's best</p>
+    <p style="margin-top:8px; opacity:0.6; font-size:0.78rem;">Not intended to diagnose, treat, cure, or prevent any disease. Consult a physician before use if pregnant, nursing, or for use on young children.</p>
+  </footer>
+</div>
+
+<!-- ===== PROCEDURE PAGE ===== -->
+<div id="page-procedure" class="page">
+  <section class="section">
+    <div class="section-title fade-up">
+      <h2>How to Make Herbal VapoRub</h2>
+      <div class="divider"></div>
+      <p>Follow this step-by-step guide to craft your own 20 ml batch of natural VapoRub at home.</p>
+    </div>
+    <div style="max-width:800px; margin: 0 auto 40px; background:#e8f5e9; border-radius:16px; padding:24px 28px; display:flex; gap:18px; align-items:flex-start;">
+      <span style="font-size:2rem;">📋</span>
+      <div>
+        <strong style="color:var(--green-dark);">Yields:</strong> 20 ml (approximately one small jar)<br>
+        <strong style="color:var(--green-dark);">Equipment needed:</strong> Double boiler or heatproof bowl, small saucepan, glass stir rod or spoon, 20 ml glass jar, dropper or pipette, kitchen scale<br>
+        <strong style="color:var(--green-dark);">Time:</strong> ~20 minutes + 30–45 minutes cooling time
+      </div>
+    </div>
+    <div class="proc-timeline">
+      <div class="proc-step fade-up">
+        <div class="proc-num">1</div>
+        <div class="proc-content">
+          <h4>🧹 Sanitize Your Equipment</h4>
+          <p>Clean all tools and your glass jar with hot soapy water, then rinse with rubbing alcohol and allow to dry completely. Cleanliness prevents contamination and extends shelf life.</p>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">2</div>
+        <div class="proc-content">
+          <h4>🐝 Melt the Beeswax</h4>
+          <p>Place 3 gm of beeswax in your heatproof bowl over a double boiler (a bowl set over a pot of simmering water). Stir gently until completely melted. Beeswax melts at around 62–65°C.</p>
+          <div class="proc-tip">💡 <strong>Tip:</strong> Use grated or pellet beeswax for faster, more even melting.</div>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">3</div>
+        <div class="proc-content">
+          <h4>🥥 Add the Carrier Oils</h4>
+          <p>Once beeswax is melted, add 8 ml coconut oil and 5 ml olive oil into the bowl. Stir continuously until all oils are fully combined and the mixture is smooth and uniform.</p>
+          <div class="proc-tip">💡 <strong>Tip:</strong> If coconut oil is solid, it will melt quickly once added to the warm beeswax.</div>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">4</div>
+        <div class="proc-content">
+          <h4>❄️ Add Camphor</h4>
+          <p>Add 1 gm of camphor powder or crystals to the warm oil mixture while still on the double boiler. Stir well until completely dissolved. Camphor dissolves easily in warm oil.</p>
+          <div class="proc-tip">⚠️ <strong>Safety:</strong> Camphor vapors can be strong — ensure good ventilation while mixing.</div>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">5</div>
+        <div class="proc-content">
+          <h4>🌡️ Remove from Heat & Cool Slightly</h4>
+          <p>Remove the bowl from the double boiler and allow the mixture to cool for 3–5 minutes. It should still be liquid but not too hot (around 45–50°C is ideal). This step preserves the therapeutic compounds in the essential oils.</p>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">6</div>
+        <div class="proc-content">
+          <h4>🌿 Add Essential Oils</h4>
+          <p>Add your essential oils one by one, stirring after each addition:</p>
+          <ul style="padding-left:20px; color:var(--text-light); margin-top:8px; font-size:0.9rem; line-height:1.8;">
+            <li>🌿 Peppermint oil: 3–4 drops</li>
+            <li>🌰 Clove oil: 2–3 drops</li>
+            <li>🌲 Eucalyptus oil: 6–7 drops</li>
+          </ul>
+          <div class="proc-tip">💡 <strong>Tip:</strong> Add oils to cooler mixture to preserve their volatile therapeutic compounds.</div>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">7</div>
+        <div class="proc-content">
+          <h4>🫙 Pour into Jar</h4>
+          <p>Quickly but carefully pour the liquid mixture into your clean, dry 20 ml glass jar before it starts to solidify. Work efficiently as the mixture can set quickly, especially in cool environments.</p>
+          <div class="proc-tip">💡 <strong>Tip:</strong> Warm the jar slightly with hot water first to slow setting and prevent cracking.</div>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">8</div>
+        <div class="proc-content">
+          <h4>⏳ Allow to Set</h4>
+          <p>Leave the jar uncovered at room temperature for 30–45 minutes until fully solidified. Do not refrigerate as this can cause the product to become too hard. Once set, close the lid tightly.</p>
+        </div>
+      </div>
+      <div class="proc-step fade-up">
+        <div class="proc-num">9</div>
+        <div class="proc-content">
+          <h4>🏷️ Label & Store</h4>
+          <p>Label your jar with the date of preparation and ingredients. Store in a cool, dry place away from direct sunlight. Shelf life is approximately 6–12 months when stored properly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('calculator')">Batch Calculator</a>
+    </div>
+    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ===== CALCULATOR PAGE ===== -->
+<div id="page-calculator" class="page">
+  <section class="section">
+    <div class="section-title fade-up">
+      <h2>Ingredient Calculator</h2>
+      <div class="divider"></div>
+      <p>Scale your recipe up or down. Enter your desired batch size to get exact ingredient amounts.</p>
+    </div>
+    <div class="calc-wrapper fade-up">
+      <div class="calc-intro">
+        <p>Our base recipe makes <strong>20 ml</strong>. Use the slider to scale up your batch size.</p>
+      </div>
+      <div class="calc-slider-group">
+        <label>Batch Size <span id="batchLabel">20 ml</span></label>
+        <input type="range" id="batchSlider" min="20" max="500" step="20" value="20" oninput="updateCalc()">
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-light); margin-top:4px;">
+          <span>20 ml (1 jar)</span><span>500 ml (25 jars)</span>
+        </div>
+      </div>
+      <div class="calc-slider-group">
+        <label>Eucalyptus Oil Drops per 20ml <span id="eucLabel">6 drops</span></label>
+        <input type="range" id="eucSlider" min="6" max="7" step="1" value="6" oninput="updateCalc()">
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-light); margin-top:4px;">
+          <span>6 drops (lighter)</span><span>7 drops (stronger)</span>
+        </div>
+      </div>
+      <div class="calc-slider-group">
+        <label>Peppermint Oil Drops per 20ml <span id="pepLabel">3 drops</span></label>
+        <input type="range" id="pepSlider" min="3" max="4" step="1" value="3" oninput="updateCalc()">
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-light); margin-top:4px;">
+          <span>3 drops (mild)</span><span>4 drops (fresh)</span>
+        </div>
+      </div>
+      <div class="calc-slider-group">
+        <label>Clove Oil Drops per 20ml <span id="cloLabel">2 drops</span></label>
+        <input type="range" id="cloSlider" min="2" max="3" step="1" value="2" oninput="updateCalc()">
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-light); margin-top:4px;">
+          <span>2 drops</span><span>3 drops</span>
+        </div>
+      </div>
+      <div class="calc-results">
+        <h3>📋 Scaled Recipe</h3>
+        <div class="calc-row"><span>🐝 Beeswax</span><span id="r-beeswax">3.0 gm</span></div>
+        <div class="calc-row"><span>🫒 Olive Oil</span><span id="r-olive">5.0 ml</span></div>
+        <div class="calc-row"><span>🥥 Coconut Oil</span><span id="r-coconut">8.0 ml</span></div>
+        <div class="calc-row"><span>❄️ Camphor</span><span id="r-camphor">1.0 gm</span></div>
+        <div class="calc-row"><span>🌿 Peppermint Oil</span><span id="r-pep">3 drops</span></div>
+        <div class="calc-row"><span>🌰 Clove Oil</span><span id="r-clo">2 drops</span></div>
+        <div class="calc-row"><span>🌲 Eucalyptus Oil</span><span id="r-euc">6 drops</span></div>
+        <div class="calc-row"><span>Total Batch / Jars</span><span id="r-total">20 ml / 1 jar</span></div>
+        <div class="calc-note">*Drop counts are approximate. 1 drop ≈ 0.05 ml. Adjust to your preference.</div>
+      </div>
+      <button class="calc-btn" onclick="copyRecipe()">📋 Copy Recipe to Clipboard</button>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('procedure')">How to Make</a>
+    </div>
+    <p>© 2025 Herbal VapoRub. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== THEME TOGGLE =====
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  document.getElementById('themeToggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('herbalTheme', isDark ? 'dark' : 'light');
+}
+// Load saved theme
+(function() {
+  if (localStorage.getItem('herbalTheme') === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('themeToggle').textContent = '☀️';
+  }
+})();
+
+// ===== NAVIGATION =====
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  const navEl = document.getElementById('nav-' + name);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => triggerFadeUps(), 100);
+}
+
+// ===== SCROLL FADE UPS =====
+function triggerFadeUps() {
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 80);
+  });
+}
+triggerFadeUps();
+
+// ===== FAQ =====
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ===== CALCULATOR =====
+function updateCalc() {
+  const batch = parseInt(document.getElementById('batchSlider').value);
+  const euc = parseInt(document.getElementById('eucSlider').value);
+  const pep = parseInt(document.getElementById('pepSlider').value);
+  const clo = parseInt(document.getElementById('cloSlider').value);
+  const scale = batch / 20;
+  const jars = batch / 20;
+
+  document.getElementById('batchLabel').textContent = batch + ' ml';
+  document.getElementById('eucLabel').textContent = euc + ' drops';
+  document.getElementById('pepLabel').textContent = pep + ' drops';
+  document.getElementById('cloLabel').textContent = clo + ' drops';
+
+  document.getElementById('r-beeswax').textContent = (3 * scale).toFixed(1) + ' gm';
+  document.getElementById('r-olive').textContent = (5 * scale).toFixed(1) + ' ml';
+  document.getElementById('r-coconut').textContent = (8 * scale).toFixed(1) + ' ml';
+  document.getElementById('r-camphor').textContent = (1 * scale).toFixed(1) + ' gm';
+  document.getElementById('r-pep').textContent = Math.round(pep * scale) + ' drops';
+  document.getElementById('r-clo').textContent = Math.round(clo * scale) + ' drops';
+  document.getElementById('r-euc').textContent = Math.round(euc * scale) + ' drops';
+  document.getElementById('r-total').textContent = batch + ' ml / ' + jars + ' jar' + (jars > 1 ? 's' : '');
+}
+
+function copyRecipe() {
+  const batch = parseInt(document.getElementById('batchSlider').value);
+  const scale = batch / 20;
+  const euc = parseInt(document.getElementById('eucSlider').value);
+  const pep = parseInt(document.getElementById('pepSlider').value);
+  const clo = parseInt(document.getElementById('cloSlider').value);
+  const recipe = `HERBAL VAPORUB RECIPE (${batch} ml / ${batch/20} jar${batch/20>1?'s':''})\n\n` +
+    `Beeswax: ${(3*scale).toFixed(1)} gm\n` +
+    `Olive Oil: ${(5*scale).toFixed(1)} ml\n` +
+    `Coconut Oil: ${(8*scale).toFixed(1)} ml\n` +
+    `Camphor: ${(1*scale).toFixed(1)} gm\n` +
+    `Peppermint Oil: ${Math.round(pep*scale)} drops\n` +
+    `Clove Oil: ${Math.round(clo*scale)} drops\n` +
+    `Eucalyptus Oil: ${Math.round(euc*scale)} drops\n\n` +
+    `Made with Herbal VapoRub 🌿`;
+  navigator.clipboard.writeText(recipe).then(() => showToast('Recipe copied to clipboard! 📋'));
+}
+
+// ===== VIDEO =====
+function openVideo(title, url) {
+  document.getElementById('videoTitle').textContent = title;
+  document.getElementById('videoLink').href = url;
+  document.getElementById('videoLink').textContent = '🔗 Search "' + title + '" on YouTube →';
+  document.getElementById('videoEmbed').innerHTML = '<div style="padding:20px; color:rgba(255,255,255,0.7);">🎬 ' + title + '<br><br>Click the link below to watch</div>';
+  document.getElementById('videoModal').classList.add('open');
+}
+function closeVideoModal(e) {
+  if (!e || e.target === document.getElementById('videoModal')) {
+    document.getElementById('videoModal').classList.remove('open');
+  }
+}
+
+// ===== ORDER =====
+let qty = 1;
+const PRICES = { 1: 299, 2: 299, 3: 269, 4: 269, 5: 269, 6: 249 };
+
+function getPrice(q) {
+  if (q >= 6) return 249;
+  if (q >= 3) return 269;
+  return 299;
+}
+
+function changeQty(delta) {
+  qty = Math.max(1, Math.min(20, qty + delta));
+  document.getElementById('qtyDisplay').textContent = qty;
+  const price = getPrice(qty);
+  const total = price * qty;
+  document.getElementById('totalAmount').textContent = '₹' + total;
+  let disc = '';
+  if (qty >= 6) disc = '🎉 17% volume discount applied!';
+  else if (qty >= 3) disc = '✅ 10% volume discount applied!';
+  document.getElementById('discountLabel').textContent = disc;
+}
+
+function placeOrder() {
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const payment = document.getElementById('payment').value;
+
+  if (!fname || !lname || !email || !phone || !address || !payment) {
+    showToast('⚠️ Please fill in all required fields');
+    return;
+  }
+  if (!email.includes('@')) {
+    showToast('⚠️ Please enter a valid email');
+    return;
+  }
+
+  document.getElementById('orderFormWrapper').style.display = 'none';
+  const success = document.getElementById('orderSuccess');
+  success.style.display = 'block';
+  document.getElementById('successName').textContent = fname + ' ' + lname;
+  showToast('✅ Order placed successfully!');
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ===== COPY REFERENCES =====
+function copyRefs() {
+  const refs = `HERBAL VAPORUB — REFERENCES\n\n[1] Wikipedia contributors. Vicks VapoRub. Wikipedia, The Free Encyclopedia.\n    https://en.wikipedia.org/wiki/Vicks_VapoRub\n\n[2] Remington: The Science and Practice of Pharmacy. Pharmaceutical Press, London.\n\n[2a] Peppermint Oil (Mentha piperita) — menthol ~45%. Remington, pp. 300–310.\n[2b] Camphor (Cinnamomum camphora). Remington, pp. 250–260.\n[2c] Eucalyptus Oil (Eucalyptus globulus) — cineole ~70%. Remington, pp. 260–270.\n[2d] Clove Oil (Syzygium aromaticum) — eugenol 85–90%. Remington, pp. 280–290.`;
+  navigator.clipboard.writeText(refs).then(() => showToast('📋 References copied!'));
+}
+
+// ===== KEYBOARD =====
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVideoModal();
+});
+</script>
+</body>
+</html>
